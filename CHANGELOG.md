@@ -5,7 +5,7 @@ follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions
 follow [Semantic Versioning](https://semver.org/). This file is generated at
 each release from the Conventional Commits: do not edit it by hand.
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-11-16
 
 ### Added
 
@@ -17,3 +17,5 @@ each release from the Conventional Commits: do not edit it by hand.
 - Scene action "Get the garden tasks" (today or tomorrow), with a ready-made sentence.
 - Dashboard widgets "In the garden" (the tasks in progress, what starts within the week, what ends soon) and "Crop" (the dates of one crop).
 - English, French, German and Spanish everywhere: settings, calendar, widgets, scenes and documentation.
+
+[0.1.0]: https://github.com/William-De71/gladys-sowing-calendar/releases/tag/v0.1.0
