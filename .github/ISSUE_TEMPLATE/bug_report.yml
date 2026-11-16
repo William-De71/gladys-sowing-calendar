@@ -1,0 +1,55 @@
+name: Bug report
+description: Something does not work as described in the documentation.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a problem. A day that differs from a printed calendar: say which calendar, the day and what it prints (calendars do not all use the same boundaries).
+  - type: input
+    id: gladys-version
+    attributes:
+      label: Gladys version
+      description: Settings → System.
+      placeholder: '5.3.0'
+    validations:
+      required: true
+  - type: input
+    id: integration-version
+    attributes:
+      label: Integration version
+      description: Integrations → Sowing calendar, or Settings → Supervision.
+      placeholder: '0.1.0'
+    validations:
+      required: true
+  - type: input
+    id: timezone
+    attributes:
+      label: Timezone of Gladys
+      description: Settings → System (the days are computed in it).
+      placeholder: 'Europe/Paris'
+    validations:
+      required: true
+  - type: input
+    id: status
+    attributes:
+      label: Status of the integration
+      description: The message shown at the top of its Configuration screen.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened, and what you expected
+      description: The day and time concerned, what the integration shows, and what you expected (with the calendar you compare with).
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: |
+        Copy the lines of the Logs tab of the integration around the problem (calendar sync, scene events). In developer mode, the environment variable `DEBUG=gladys-integration-sdk` adds the SDK debug logs.
+      render: text

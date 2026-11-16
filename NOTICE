@@ -1,0 +1,18 @@
+Gladys Sowing calendar integration
+Copyright 2026 William-De71
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The sowing, planting and harvest dates of src/crops.js were written for this
+project from the usual dates of French kitchen-garden calendars; they are
+guidelines, not the copy of any published table.
+
+The lunar option computes the position of the moon with astronomy-engine
+(https://github.com/cosinekitty/astronomy), Copyright (c) 2019-2023 Don Cross,
+MIT License. The constellation boundaries come from the table astronomy-engine
+ships (IAU 1930 boundaries, Delporte). The method (day types by constellation,
+ascending and descending moon, days to avoid) is the one of the biodynamic
+sowing calendars made popular by Maria Thun. This integration is not
+affiliated with, endorsed or sponsored by the Maria Thun publishers, by the
+Demeter federation or by icalendrier.fr, whose published calendars were only
+used to check the results.

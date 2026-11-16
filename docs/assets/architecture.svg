@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 380" width="880" height="380" font-family="Helvetica, Arial, sans-serif" role="img" aria-labelledby="title desc">
+  <title id="title">Architecture of the Sowing calendar integration</title>
+  <desc id="desc">Illustration: the integration container moves the windows of its crop table to the climate of the house (zone, fine adjustment, hemisphere), optionally crosses them with the lunar days computed locally with astronomy-engine, and publishes to Gladys the calendar events, the scene events and the widget contents through the host API and the WebSocket. Nothing leaves the container.</desc>
+  <style>
+    .box { fill: #ffffff; stroke: #4a5568; stroke-width: 1.5; }
+    .inner { fill: #f7fafc; stroke: #a0aec0; stroke-width: 1; }
+    .sky { fill: #ecf7ee; stroke: #2f6b3a; stroke-width: 1.5; }
+    .gladys { fill: #ebf4ff; stroke: #3b82f6; stroke-width: 1.5; }
+    .h { font-size: 15px; font-weight: bold; fill: #1a202c; }
+    .t { font-size: 12px; fill: #2d3748; }
+    .s { font-size: 11px; fill: #4a5568; }
+    .arrow { stroke: #4a5568; stroke-width: 1.5; fill: none; marker-end: url(#a); }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#4a5568"/>
+    </marker>
+  </defs>
+  <rect width="880" height="380" fill="#ffffff"/>
+
+  <rect class="sky" x="20" y="115" width="170" height="140" rx="10"/>
+  <text class="h" x="105" y="145" text-anchor="middle">Computed locally</text>
+  <text class="t" x="105" y="171" text-anchor="middle">crop table</text>
+  <text class="t" x="105" y="190" text-anchor="middle">55 crops, 4 tasks</text>
+  <text class="t" x="105" y="209" text-anchor="middle">astronomy-engine (option)</text>
+  <text class="s" x="105" y="236" text-anchor="middle">no network, no key</text>
+
+  <rect class="box" x="220" y="20" width="400" height="340" rx="12"/>
+  <text class="h" x="420" y="46" text-anchor="middle">Integration container (Docker)</text>
+
+  <rect class="inner" x="240" y="62" width="360" height="62" rx="8"/>
+  <text class="t" x="420" y="84" text-anchor="middle" font-weight="bold">garden plan</text>
+  <text class="s" x="420" y="102" text-anchor="middle">sowing, planting, harvest windows for the</text>
+  <text class="s" x="420" y="117" text-anchor="middle">climate zone; favourable lunar days</text>
+
+  <rect class="inner" x="240" y="136" width="175" height="56" rx="8"/>
+  <text class="t" x="327" y="158" text-anchor="middle" font-weight="bold">calendar sync</text>
+  <text class="s" x="327" y="176" text-anchor="middle">a year ahead, per user</text>
+
+  <rect class="inner" x="425" y="136" width="175" height="56" rx="8"/>
+  <text class="t" x="512" y="158" text-anchor="middle" font-weight="bold">daily scene events</text>
+  <text class="s" x="512" y="176" text-anchor="middle">at the event hour</text>
+
+  <rect class="inner" x="240" y="204" width="175" height="56" rx="8"/>
+  <text class="t" x="327" y="226" text-anchor="middle" font-weight="bold">widgets</text>
+  <text class="s" x="327" y="244" text-anchor="middle">in the garden, crop</text>
+
+  <rect class="inner" x="425" y="204" width="175" height="56" rx="8"/>
+  <text class="t" x="512" y="226" text-anchor="middle" font-weight="bold">scene action</text>
+  <text class="s" x="512" y="244" text-anchor="middle">today or tomorrow</text>
+
+  <rect class="inner" x="240" y="272" width="360" height="40" rx="8"/>
+  <text class="s" x="420" y="296" text-anchor="middle">/data: scene events already fired, language</text>
+
+  <text class="s" x="420" y="340" text-anchor="middle">@gladysassistant/integration-sdk · transports: local · non-root</text>
+
+  <rect class="gladys" x="660" y="80" width="200" height="220" rx="10"/>
+  <text class="h" x="760" y="110" text-anchor="middle">Gladys</text>
+  <text class="t" x="760" y="140" text-anchor="middle">My calendars</text>
+  <text class="t" x="760" y="164" text-anchor="middle">scene triggers</text>
+  <text class="t" x="760" y="188" text-anchor="middle">scene action</text>
+  <text class="t" x="760" y="212" text-anchor="middle">dashboard widgets</text>
+  <text class="t" x="760" y="236" text-anchor="middle">timezone (TZ)</text>
+  <text class="s" x="760" y="276" text-anchor="middle">host API + WebSocket</text>
+
+  <path class="arrow" d="M190 185 L236 185"/>
+  <path class="arrow" d="M620 150 L656 150"/>
+  <text class="s" x="638" y="142" text-anchor="middle">publish</text>
+  <path class="arrow" d="M656 230 L624 230"/>
+  <text class="s" x="638" y="250" text-anchor="middle">requests</text>
+</svg>

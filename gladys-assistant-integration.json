@@ -1,0 +1,2273 @@
+{
+  "manifest_version": 1,
+  "type": "calendar",
+  "name": "Sowing calendar",
+  "description": {
+    "en": "When to sow, plant out and harvest your vegetables and herbs: calendar, scenes, widgets.",
+    "fr": "Quand semer, planter et récolter vos légumes et aromatiques : calendrier, scènes, widgets.",
+    "de": "Wann Gemüse und Kräuter säen, pflanzen und ernten: Kalender, Szenen, Widgets.",
+    "es": "Cuándo sembrar, plantar y cosechar hortalizas y aromáticas: calendario, escenas, widgets."
+  },
+  "version": "0.1.0",
+  "docker_image": "ghcr.io/william-de71/gladys-sowing-calendar:0.1.0",
+  "gladys_version": ">=5.3.0",
+  "categories": ["environment", "leisure", "services"],
+  "keywords": [
+    "calendrier des semis",
+    "potager",
+    "semis",
+    "jardin",
+    "légumes",
+    "Aussaatkalender",
+    "Gemüsegarten",
+    "calendario de siembra",
+    "huerto",
+    "vegetable garden"
+  ],
+  "cover_image": "https://raw.githubusercontent.com/William-De71/gladys-sowing-calendar/main/cover.jpg",
+  "transports": ["local"],
+  "config_schema": [
+    {
+      "key": "intro",
+      "type": "section",
+      "label": {
+        "en": "Sowing calendar",
+        "fr": "Calendrier des semis",
+        "de": "Aussaatkalender",
+        "es": "Calendario de siembra"
+      },
+      "description": {
+        "en": "How it works:\n1. Tick the crops of your garden and choose your climate zone below.\n2. Enable the integration for you in “My calendars”: you get a “Sowing calendar” with, for each crop, when to sow under cover, sow outdoors, plant out and harvest, a year ahead. Share it with the household to use it in the scenes.\n3. Add the “In the garden” and “Crop” widgets to a dashboard.\n4. In a scene, use the triggers (daily summary, a window opens, last week of a window) or the “Get the garden tasks” action.\nThe dates are those of the usual gardening calendars, moved for your climate: guidelines, to adjust to the weather of the year. Everything is computed in the integration: no account, no connection.",
+        "fr": "Comment ça marche :\n1. Cochez les cultures de votre potager et choisissez votre zone climatique ci-dessous.\n2. Activez l’intégration pour vous dans « Mes calendriers » : vous obtenez un « Calendrier des semis » avec, pour chaque culture, quand semer sous abri, semer en pleine terre, planter et récolter, sur un an. Partagez-le avec le foyer pour l’utiliser dans les scènes.\n3. Ajoutez les widgets « Au potager » et « Culture » à un tableau de bord.\n4. Dans une scène, utilisez les déclencheurs (résumé du jour, une période commence, dernière semaine d’une période) ou l’action « Obtenir les travaux du potager ».\nLes dates sont celles des calendriers de jardinage habituels, décalées selon votre climat : des repères, à ajuster à la météo de l’année. Tout est calculé dans l’intégration : aucun compte, aucune connexion.",
+        "de": "So funktioniert es:\n1. Wählen Sie unten die Kulturen Ihres Gartens und Ihre Klimazone.\n2. Aktivieren Sie die Integration für sich unter „Meine Kalender“: Sie erhalten einen „Aussaatkalender“ mit, für jede Kultur, Aussaat unter Glas, Aussaat ins Freiland, Auspflanzen und Ernte für ein Jahr. Teilen Sie ihn mit dem Haushalt, um ihn in Szenen zu nutzen.\n3. Fügen Sie die Widgets „Im Gemüsegarten“ und „Kultur“ einem Dashboard hinzu.\n4. Nutzen Sie in einer Szene die Auslöser (Tageszusammenfassung, ein Zeitraum beginnt, letzte Woche eines Zeitraums) oder die Aktion „Gartenarbeiten abrufen“.\nDie Daten sind die üblicher Gartenkalender, an Ihr Klima angepasst: Richtwerte, je nach Witterung des Jahres anzupassen. Alles wird in der Integration berechnet: kein Konto, keine Verbindung.",
+        "es": "Cómo funciona:\n1. Marque abajo los cultivos de su huerto y elija su zona climática.\n2. Active la integración para usted en «Mis calendarios»: obtiene un «Calendario de siembra» con, para cada cultivo, cuándo sembrar en semillero, sembrar directamente, plantar y cosechar, durante un año. Compártalo con el hogar para usarlo en las escenas.\n3. Añada los widgets «En el huerto» y «Cultivo» a un panel.\n4. En una escena, use los disparadores (resumen del día, empieza un periodo, última semana de un periodo) o la acción «Obtener las tareas del huerto».\nLas fechas son las de los calendarios de huerto habituales, desplazadas según su clima: orientaciones, a ajustar al tiempo del año. Todo se calcula en la integración: sin cuenta, sin conexión."
+      }
+    },
+    {
+      "key": "crops",
+      "type": "multi_select",
+      "default": [
+        "tomato",
+        "zucchini",
+        "cucumber",
+        "bean",
+        "pea",
+        "carrot",
+        "radish",
+        "potato",
+        "onion",
+        "garlic",
+        "leek",
+        "lettuce",
+        "spinach",
+        "strawberry",
+        "basil",
+        "parsley"
+      ],
+      "label": {
+        "en": "Crops of the garden",
+        "fr": "Cultures du potager",
+        "de": "Kulturen des Gartens",
+        "es": "Cultivos del huerto"
+      },
+      "description": {
+        "en": "The calendar, the widgets and the scenes follow these crops.",
+        "fr": "Le calendrier, les widgets et les scènes suivent ces cultures.",
+        "de": "Kalender, Widgets und Szenen folgen diesen Kulturen.",
+        "es": "El calendario, los widgets y las escenas siguen estos cultivos."
+      },
+      "options": [
+        {
+          "value": "tomato",
+          "label": { "en": "Tomato", "fr": "Tomate", "de": "Tomate", "es": "Tomate" }
+        },
+        {
+          "value": "pepper",
+          "label": {
+            "en": "Pepper and chili",
+            "fr": "Poivron et piment",
+            "de": "Paprika und Chili",
+            "es": "Pimiento y guindilla"
+          }
+        },
+        {
+          "value": "eggplant",
+          "label": { "en": "Eggplant", "fr": "Aubergine", "de": "Aubergine", "es": "Berenjena" }
+        },
+        {
+          "value": "cucumber",
+          "label": { "en": "Cucumber", "fr": "Concombre", "de": "Gurke", "es": "Pepino" }
+        },
+        {
+          "value": "zucchini",
+          "label": { "en": "Zucchini", "fr": "Courgette", "de": "Zucchini", "es": "Calabacín" }
+        },
+        {
+          "value": "squash",
+          "label": {
+            "en": "Winter squash",
+            "fr": "Courge et potiron",
+            "de": "Kürbis",
+            "es": "Calabaza"
+          }
+        },
+        {
+          "value": "melon",
+          "label": { "en": "Melon", "fr": "Melon", "de": "Melone", "es": "Melón" }
+        },
+        {
+          "value": "bean",
+          "label": { "en": "Green bean", "fr": "Haricot", "de": "Gartenbohne", "es": "Judía verde" }
+        },
+        {
+          "value": "pea",
+          "label": { "en": "Pea", "fr": "Petit pois", "de": "Erbse", "es": "Guisante" }
+        },
+        {
+          "value": "broad_bean",
+          "label": { "en": "Broad bean", "fr": "Fève", "de": "Dicke Bohne", "es": "Haba" }
+        },
+        {
+          "value": "sweet_corn",
+          "label": { "en": "Sweet corn", "fr": "Maïs doux", "de": "Zuckermais", "es": "Maíz dulce" }
+        },
+        {
+          "value": "strawberry",
+          "label": { "en": "Strawberry", "fr": "Fraisier", "de": "Erdbeere", "es": "Fresa" }
+        },
+        {
+          "value": "carrot",
+          "label": { "en": "Carrot", "fr": "Carotte", "de": "Möhre", "es": "Zanahoria" }
+        },
+        {
+          "value": "radish",
+          "label": { "en": "Radish", "fr": "Radis", "de": "Radieschen", "es": "Rábano" }
+        },
+        {
+          "value": "winter_radish",
+          "label": {
+            "en": "Winter radish",
+            "fr": "Radis d’hiver",
+            "de": "Winterrettich",
+            "es": "Rábano de invierno"
+          }
+        },
+        {
+          "value": "beetroot",
+          "label": { "en": "Beetroot", "fr": "Betterave", "de": "Rote Bete", "es": "Remolacha" }
+        },
+        {
+          "value": "turnip",
+          "label": { "en": "Turnip", "fr": "Navet", "de": "Speiserübe", "es": "Nabo" }
+        },
+        {
+          "value": "parsnip",
+          "label": { "en": "Parsnip", "fr": "Panais", "de": "Pastinake", "es": "Chirivía" }
+        },
+        {
+          "value": "potato",
+          "label": { "en": "Potato", "fr": "Pomme de terre", "de": "Kartoffel", "es": "Patata" }
+        },
+        {
+          "value": "onion",
+          "label": { "en": "Onion", "fr": "Oignon", "de": "Zwiebel", "es": "Cebolla" }
+        },
+        {
+          "value": "shallot",
+          "label": { "en": "Shallot", "fr": "Échalote", "de": "Schalotte", "es": "Chalota" }
+        },
+        {
+          "value": "garlic",
+          "label": { "en": "Garlic", "fr": "Ail", "de": "Knoblauch", "es": "Ajo" }
+        },
+        {
+          "value": "celeriac",
+          "label": {
+            "en": "Celeriac",
+            "fr": "Céleri-rave",
+            "de": "Knollensellerie",
+            "es": "Apionabo"
+          }
+        },
+        {
+          "value": "jerusalem_artichoke",
+          "label": {
+            "en": "Jerusalem artichoke",
+            "fr": "Topinambour",
+            "de": "Topinambur",
+            "es": "Tupinambo"
+          }
+        },
+        {
+          "value": "leek",
+          "label": { "en": "Leek", "fr": "Poireau", "de": "Lauch", "es": "Puerro" }
+        },
+        {
+          "value": "lettuce",
+          "label": { "en": "Lettuce", "fr": "Laitue", "de": "Kopfsalat", "es": "Lechuga" }
+        },
+        {
+          "value": "lambs_lettuce",
+          "label": { "en": "Lamb’s lettuce", "fr": "Mâche", "de": "Feldsalat", "es": "Canónigos" }
+        },
+        {
+          "value": "rocket",
+          "label": { "en": "Rocket", "fr": "Roquette", "de": "Rucola", "es": "Rúcula" }
+        },
+        {
+          "value": "spinach",
+          "label": { "en": "Spinach", "fr": "Épinard", "de": "Spinat", "es": "Espinaca" }
+        },
+        {
+          "value": "chard",
+          "label": { "en": "Swiss chard", "fr": "Blette", "de": "Mangold", "es": "Acelga" }
+        },
+        {
+          "value": "endive",
+          "label": {
+            "en": "Endive and escarole",
+            "fr": "Chicorée frisée et scarole",
+            "de": "Endivie",
+            "es": "Escarola"
+          }
+        },
+        {
+          "value": "cabbage",
+          "label": { "en": "Cabbage", "fr": "Chou pommé", "de": "Kopfkohl", "es": "Repollo" }
+        },
+        {
+          "value": "brussels_sprouts",
+          "label": {
+            "en": "Brussels sprouts",
+            "fr": "Chou de Bruxelles",
+            "de": "Rosenkohl",
+            "es": "Col de Bruselas"
+          }
+        },
+        {
+          "value": "kale",
+          "label": { "en": "Kale", "fr": "Chou kale", "de": "Grünkohl", "es": "Col rizada" }
+        },
+        {
+          "value": "chinese_cabbage",
+          "label": {
+            "en": "Chinese cabbage",
+            "fr": "Chou chinois",
+            "de": "Chinakohl",
+            "es": "Col china"
+          }
+        },
+        {
+          "value": "kohlrabi",
+          "label": { "en": "Kohlrabi", "fr": "Chou-rave", "de": "Kohlrabi", "es": "Colinabo" }
+        },
+        {
+          "value": "celery",
+          "label": { "en": "Celery", "fr": "Céleri branche", "de": "Staudensellerie", "es": "Apio" }
+        },
+        {
+          "value": "fennel",
+          "label": {
+            "en": "Florence fennel",
+            "fr": "Fenouil",
+            "de": "Knollenfenchel",
+            "es": "Hinojo"
+          }
+        },
+        {
+          "value": "asparagus",
+          "label": { "en": "Asparagus", "fr": "Asperge", "de": "Spargel", "es": "Espárrago" }
+        },
+        {
+          "value": "rhubarb",
+          "label": { "en": "Rhubarb", "fr": "Rhubarbe", "de": "Rhabarber", "es": "Ruibarbo" }
+        },
+        {
+          "value": "broccoli",
+          "label": { "en": "Broccoli", "fr": "Brocoli", "de": "Brokkoli", "es": "Brócoli" }
+        },
+        {
+          "value": "cauliflower",
+          "label": { "en": "Cauliflower", "fr": "Chou-fleur", "de": "Blumenkohl", "es": "Coliflor" }
+        },
+        {
+          "value": "artichoke",
+          "label": { "en": "Artichoke", "fr": "Artichaut", "de": "Artischocke", "es": "Alcachofa" }
+        },
+        {
+          "value": "basil",
+          "label": { "en": "Basil", "fr": "Basilic", "de": "Basilikum", "es": "Albahaca" }
+        },
+        {
+          "value": "parsley",
+          "label": { "en": "Parsley", "fr": "Persil", "de": "Petersilie", "es": "Perejil" }
+        },
+        {
+          "value": "chives",
+          "label": { "en": "Chives", "fr": "Ciboulette", "de": "Schnittlauch", "es": "Cebollino" }
+        },
+        {
+          "value": "coriander",
+          "label": { "en": "Coriander", "fr": "Coriandre", "de": "Koriander", "es": "Cilantro" }
+        },
+        {
+          "value": "dill",
+          "label": { "en": "Dill", "fr": "Aneth", "de": "Dill", "es": "Eneldo" }
+        },
+        {
+          "value": "chervil",
+          "label": { "en": "Chervil", "fr": "Cerfeuil", "de": "Kerbel", "es": "Perifollo" }
+        },
+        {
+          "value": "thyme",
+          "label": { "en": "Thyme", "fr": "Thym", "de": "Thymian", "es": "Tomillo" }
+        },
+        {
+          "value": "sage",
+          "label": { "en": "Sage", "fr": "Sauge", "de": "Salbei", "es": "Salvia" }
+        },
+        {
+          "value": "rosemary",
+          "label": { "en": "Rosemary", "fr": "Romarin", "de": "Rosmarin", "es": "Romero" }
+        },
+        {
+          "value": "mint",
+          "label": { "en": "Mint", "fr": "Menthe", "de": "Minze", "es": "Menta" }
+        },
+        {
+          "value": "oregano",
+          "label": { "en": "Oregano", "fr": "Origan", "de": "Oregano", "es": "Orégano" }
+        },
+        {
+          "value": "tarragon",
+          "label": { "en": "Tarragon", "fr": "Estragon", "de": "Estragon", "es": "Estragón" }
+        }
+      ]
+    },
+    {
+      "key": "zone",
+      "type": "select",
+      "default": "temperate",
+      "label": {
+        "en": "Climate zone",
+        "fr": "Zone climatique",
+        "de": "Klimazone",
+        "es": "Zona climática"
+      },
+      "description": {
+        "en": "The reference dates are those of a temperate climate (northern half of France, Belgium, Swiss plateau, southern Germany). A warmer zone starts the spring earlier and ends the season later, a colder one the reverse.",
+        "fr": "Les dates de référence sont celles d’un climat tempéré (moitié nord de la France, Belgique, plateau suisse, sud de l’Allemagne). Une zone plus chaude avance le printemps et prolonge la saison, une zone plus froide fait l’inverse.",
+        "de": "Die Bezugsdaten sind die eines gemäßigten Klimas (nördliche Hälfte Frankreichs, Belgien, Schweizer Mittelland, Süddeutschland). Eine wärmere Zone beginnt das Frühjahr früher und verlängert die Saison, eine kältere umgekehrt.",
+        "es": "Las fechas de referencia son las de un clima templado (mitad norte de Francia, Bélgica, meseta suiza, sur de Alemania). Una zona más cálida adelanta la primavera y alarga la temporada, una más fría lo contrario."
+      },
+      "options": [
+        {
+          "value": "mediterranean",
+          "label": {
+            "en": "Mediterranean (spring 3 weeks earlier, autumn 3 weeks later)",
+            "fr": "Méditerranéenne (printemps avancé de 3 semaines, automne retardé de 3 semaines)",
+            "de": "Mittelmeer (Frühjahr 3 Wochen früher, Herbst 3 Wochen später)",
+            "es": "Mediterránea (primavera 3 semanas antes, otoño 3 semanas después)"
+          }
+        },
+        {
+          "value": "oceanic",
+          "label": {
+            "en": "Mild oceanic (spring 1 week earlier, autumn 2 weeks later)",
+            "fr": "Océanique doux (printemps avancé d’1 semaine, automne retardé de 2 semaines)",
+            "de": "Mildes Seeklima (Frühjahr 1 Woche früher, Herbst 2 Wochen später)",
+            "es": "Oceánica templada (primavera 1 semana antes, otoño 2 semanas después)"
+          }
+        },
+        {
+          "value": "temperate",
+          "label": {
+            "en": "Temperate (reference dates)",
+            "fr": "Tempérée (dates de référence)",
+            "de": "Gemäßigt (Bezugsdaten)",
+            "es": "Templada (fechas de referencia)"
+          }
+        },
+        {
+          "value": "continental",
+          "label": {
+            "en": "Continental (spring 1 week later, autumn 1 week earlier)",
+            "fr": "Continentale (printemps retardé d’1 semaine, automne avancé d’1 semaine)",
+            "de": "Kontinental (Frühjahr 1 Woche später, Herbst 1 Woche früher)",
+            "es": "Continental (primavera 1 semana después, otoño 1 semana antes)"
+          }
+        },
+        {
+          "value": "mountain",
+          "label": {
+            "en": "Mountain (spring 3 weeks later, autumn 3 weeks earlier)",
+            "fr": "Montagne (printemps retardé de 3 semaines, automne avancé de 3 semaines)",
+            "de": "Berge (Frühjahr 3 Wochen später, Herbst 3 Wochen früher)",
+            "es": "Montaña (primavera 3 semanas después, otoño 3 semanas antes)"
+          }
+        }
+      ]
+    },
+    {
+      "key": "offset_weeks",
+      "type": "number",
+      "min": -4,
+      "max": 4,
+      "default": 0,
+      "label": {
+        "en": "Fine adjustment (weeks)",
+        "fr": "Réglage fin (semaines)",
+        "de": "Feineinstellung (Wochen)",
+        "es": "Ajuste fino (semanas)"
+      },
+      "description": {
+        "en": "Weeks added to every date, −4 to 4: positive for a frost pocket, negative for a sheltered garden.",
+        "fr": "Semaines ajoutées à toutes les dates, −4 à 4 : positif pour un coin gélif, négatif pour un jardin abrité.",
+        "de": "Wochen, die zu allen Daten addiert werden, −4 bis 4: positiv für eine Frostsenke, negativ für einen geschützten Garten.",
+        "es": "Semanas añadidas a todas las fechas, −4 a 4: positivo para una zona de heladas, negativo para un huerto resguardado."
+      }
+    },
+    {
+      "key": "hemisphere",
+      "type": "select",
+      "default": "north",
+      "label": { "en": "Hemisphere", "fr": "Hémisphère", "de": "Halbkugel", "es": "Hemisferio" },
+      "description": {
+        "en": "Southern: every date six months later.",
+        "fr": "Sud : toutes les dates six mois plus tard.",
+        "de": "Süden: alle Daten sechs Monate später.",
+        "es": "Sur: todas las fechas seis meses después."
+      },
+      "options": [
+        {
+          "value": "north",
+          "label": { "en": "Northern", "fr": "Nord", "de": "Nord", "es": "Norte" }
+        },
+        {
+          "value": "south",
+          "label": { "en": "Southern", "fr": "Sud", "de": "Süd", "es": "Sur" }
+        }
+      ]
+    },
+    {
+      "key": "calendar_tasks",
+      "type": "multi_select",
+      "default": ["sow_indoors", "sow_outdoors", "plant_out", "harvest"],
+      "label": {
+        "en": "Tasks in the calendar",
+        "fr": "Tâches dans le calendrier",
+        "de": "Arbeiten im Kalender",
+        "es": "Tareas en el calendario"
+      },
+      "description": {
+        "en": "One all-day event per crop and task, over its whole window. The widgets and the scenes always show every task.",
+        "fr": "Un événement sur la journée par culture et par tâche, sur toute sa période. Les widgets et les scènes montrent toujours toutes les tâches.",
+        "de": "Ein ganztägiges Ereignis pro Kultur und Arbeit über den ganzen Zeitraum. Widgets und Szenen zeigen immer alle Arbeiten.",
+        "es": "Un evento de día completo por cultivo y tarea, durante todo su periodo. Los widgets y las escenas muestran siempre todas las tareas."
+      },
+      "options": [
+        {
+          "value": "sow_indoors",
+          "label": {
+            "en": "Sow under cover",
+            "fr": "Semis sous abri",
+            "de": "Aussaat unter Glas",
+            "es": "Siembra en semillero"
+          }
+        },
+        {
+          "value": "sow_outdoors",
+          "label": {
+            "en": "Sow outdoors",
+            "fr": "Semis en pleine terre",
+            "de": "Aussaat ins Freiland",
+            "es": "Siembra directa"
+          }
+        },
+        {
+          "value": "plant_out",
+          "label": {
+            "en": "Plant out",
+            "fr": "Plantation",
+            "de": "Auspflanzen",
+            "es": "Plantación"
+          }
+        },
+        {
+          "value": "harvest",
+          "label": { "en": "Harvest", "fr": "Récolte", "de": "Ernte", "es": "Cosecha" }
+        }
+      ]
+    },
+    {
+      "key": "lunar",
+      "type": "boolean",
+      "default": false,
+      "label": {
+        "en": "Favourable lunar days",
+        "fr": "Jours lunaires favorables",
+        "de": "Günstige Mondtage",
+        "es": "Días lunares favorables"
+      },
+      "description": {
+        "en": "Adds the days of the lunar gardening calendar (Maria Thun method) that suit each crop: root days for carrots, fruit days for tomatoes… Days to avoid excluded. Computed locally.",
+        "fr": "Ajoute les jours du calendrier lunaire du jardinier (méthode Maria Thun) qui conviennent à chaque culture : jours racines pour les carottes, jours fruits pour les tomates… Jours à éviter exclus. Calculé localement.",
+        "de": "Fügt die Tage des Mondkalenders für den Garten (Methode Maria Thun) hinzu, die zu jeder Kultur passen: Wurzeltage für Möhren, Fruchttage für Tomaten… Ungünstige Tage ausgeschlossen. Lokal berechnet.",
+        "es": "Añade los días del calendario lunar del huerto (método Maria Thun) adecuados para cada cultivo: días de raíz para las zanahorias, de fruto para los tomates… Sin los días desfavorables. Calculado localmente."
+      }
+    },
+    {
+      "key": "event_hour",
+      "type": "number",
+      "min": 0,
+      "max": 23,
+      "default": 7,
+      "label": {
+        "en": "Hour of the scene triggers",
+        "fr": "Heure des déclencheurs de scène",
+        "de": "Stunde der Szenenauslöser",
+        "es": "Hora de los disparadores de escena"
+      },
+      "description": {
+        "en": "The triggers start every day at this hour (0 to 23, in the timezone of Gladys).",
+        "fr": "Les déclencheurs démarrent chaque jour à cette heure (0 à 23, dans le fuseau horaire de Gladys).",
+        "de": "Die Auslöser starten jeden Tag zu dieser Stunde (0 bis 23, in der Zeitzone von Gladys).",
+        "es": "Los disparadores se inician cada día a esta hora (0 a 23, en la zona horaria de Gladys)."
+      }
+    },
+    {
+      "key": "language",
+      "type": "select",
+      "default": "auto",
+      "label": {
+        "en": "Language of the texts",
+        "fr": "Langue des textes",
+        "de": "Sprache der Texte",
+        "es": "Idioma de los textos"
+      },
+      "description": {
+        "en": "Scene texts and status. Automatic: the language of your dashboard once a widget has been shown, guessed from the timezone of Gladys before that. The calendar always follows the language of each user.",
+        "fr": "Textes des scènes et état. Automatique : la langue de votre tableau de bord dès qu’un widget a été affiché, devinée d’après le fuseau horaire de Gladys avant cela. Le calendrier suit toujours la langue de chaque utilisateur.",
+        "de": "Szenentexte und Status. Automatisch: die Sprache Ihres Dashboards, sobald ein Widget angezeigt wurde, vorher aus der Zeitzone von Gladys abgeleitet. Der Kalender folgt immer der Sprache jedes Benutzers.",
+        "es": "Textos de escenas y estado. Automático: el idioma de su panel en cuanto se haya mostrado un widget, deducido de la zona horaria de Gladys antes de eso. El calendario sigue siempre el idioma de cada usuario."
+      },
+      "options": [
+        {
+          "value": "auto",
+          "label": {
+            "en": "Automatic",
+            "fr": "Automatique",
+            "de": "Automatisch",
+            "es": "Automático"
+          }
+        },
+        {
+          "value": "en",
+          "label": { "en": "English", "fr": "English", "de": "English", "es": "English" }
+        },
+        {
+          "value": "fr",
+          "label": { "en": "Français", "fr": "Français", "de": "Français", "es": "Français" }
+        },
+        {
+          "value": "de",
+          "label": { "en": "Deutsch", "fr": "Deutsch", "de": "Deutsch", "es": "Deutsch" }
+        },
+        {
+          "value": "es",
+          "label": { "en": "Español", "fr": "Español", "de": "Español", "es": "Español" }
+        }
+      ]
+    }
+  ],
+  "widgets": [
+    {
+      "key": "tasks",
+      "icon": "list",
+      "label": {
+        "en": "In the garden",
+        "fr": "Au potager",
+        "de": "Im Gemüsegarten",
+        "es": "En el huerto"
+      },
+      "description": {
+        "en": "What to sow, plant out and harvest today, what starts this week, what ends soon.",
+        "fr": "Quoi semer, planter, récolter aujourd’hui, ce qui commence cette semaine, ce qui finit bientôt.",
+        "de": "Was heute zu säen, pflanzen und ernten ist, was diese Woche beginnt, was bald endet.",
+        "es": "Qué sembrar, plantar y cosechar hoy, qué empieza esta semana, qué termina pronto."
+      }
+    },
+    {
+      "key": "crop",
+      "icon": "feather",
+      "label": { "en": "Crop", "fr": "Culture", "de": "Kultur", "es": "Cultivo" },
+      "description": {
+        "en": "The dates of one crop: sowing, planting out, harvest, in progress or next.",
+        "fr": "Les dates d’une culture : semis, plantation, récolte, en cours ou à venir.",
+        "de": "Die Daten einer Kultur: Aussaat, Auspflanzen, Ernte, laufend oder demnächst.",
+        "es": "Las fechas de un cultivo: siembra, plantación, cosecha, en curso o próximas."
+      },
+      "settings": [
+        {
+          "key": "crop",
+          "type": "select",
+          "default": "tomato",
+          "label": { "en": "Crop", "fr": "Culture", "de": "Kultur", "es": "Cultivo" },
+          "options": [
+            {
+              "value": "tomato",
+              "label": { "en": "Tomato", "fr": "Tomate", "de": "Tomate", "es": "Tomate" }
+            },
+            {
+              "value": "pepper",
+              "label": {
+                "en": "Pepper and chili",
+                "fr": "Poivron et piment",
+                "de": "Paprika und Chili",
+                "es": "Pimiento y guindilla"
+              }
+            },
+            {
+              "value": "eggplant",
+              "label": { "en": "Eggplant", "fr": "Aubergine", "de": "Aubergine", "es": "Berenjena" }
+            },
+            {
+              "value": "cucumber",
+              "label": { "en": "Cucumber", "fr": "Concombre", "de": "Gurke", "es": "Pepino" }
+            },
+            {
+              "value": "zucchini",
+              "label": { "en": "Zucchini", "fr": "Courgette", "de": "Zucchini", "es": "Calabacín" }
+            },
+            {
+              "value": "squash",
+              "label": {
+                "en": "Winter squash",
+                "fr": "Courge et potiron",
+                "de": "Kürbis",
+                "es": "Calabaza"
+              }
+            },
+            {
+              "value": "melon",
+              "label": { "en": "Melon", "fr": "Melon", "de": "Melone", "es": "Melón" }
+            },
+            {
+              "value": "bean",
+              "label": {
+                "en": "Green bean",
+                "fr": "Haricot",
+                "de": "Gartenbohne",
+                "es": "Judía verde"
+              }
+            },
+            {
+              "value": "pea",
+              "label": { "en": "Pea", "fr": "Petit pois", "de": "Erbse", "es": "Guisante" }
+            },
+            {
+              "value": "broad_bean",
+              "label": { "en": "Broad bean", "fr": "Fève", "de": "Dicke Bohne", "es": "Haba" }
+            },
+            {
+              "value": "sweet_corn",
+              "label": {
+                "en": "Sweet corn",
+                "fr": "Maïs doux",
+                "de": "Zuckermais",
+                "es": "Maíz dulce"
+              }
+            },
+            {
+              "value": "strawberry",
+              "label": { "en": "Strawberry", "fr": "Fraisier", "de": "Erdbeere", "es": "Fresa" }
+            },
+            {
+              "value": "carrot",
+              "label": { "en": "Carrot", "fr": "Carotte", "de": "Möhre", "es": "Zanahoria" }
+            },
+            {
+              "value": "radish",
+              "label": { "en": "Radish", "fr": "Radis", "de": "Radieschen", "es": "Rábano" }
+            },
+            {
+              "value": "winter_radish",
+              "label": {
+                "en": "Winter radish",
+                "fr": "Radis d’hiver",
+                "de": "Winterrettich",
+                "es": "Rábano de invierno"
+              }
+            },
+            {
+              "value": "beetroot",
+              "label": { "en": "Beetroot", "fr": "Betterave", "de": "Rote Bete", "es": "Remolacha" }
+            },
+            {
+              "value": "turnip",
+              "label": { "en": "Turnip", "fr": "Navet", "de": "Speiserübe", "es": "Nabo" }
+            },
+            {
+              "value": "parsnip",
+              "label": { "en": "Parsnip", "fr": "Panais", "de": "Pastinake", "es": "Chirivía" }
+            },
+            {
+              "value": "potato",
+              "label": { "en": "Potato", "fr": "Pomme de terre", "de": "Kartoffel", "es": "Patata" }
+            },
+            {
+              "value": "onion",
+              "label": { "en": "Onion", "fr": "Oignon", "de": "Zwiebel", "es": "Cebolla" }
+            },
+            {
+              "value": "shallot",
+              "label": { "en": "Shallot", "fr": "Échalote", "de": "Schalotte", "es": "Chalota" }
+            },
+            {
+              "value": "garlic",
+              "label": { "en": "Garlic", "fr": "Ail", "de": "Knoblauch", "es": "Ajo" }
+            },
+            {
+              "value": "celeriac",
+              "label": {
+                "en": "Celeriac",
+                "fr": "Céleri-rave",
+                "de": "Knollensellerie",
+                "es": "Apionabo"
+              }
+            },
+            {
+              "value": "jerusalem_artichoke",
+              "label": {
+                "en": "Jerusalem artichoke",
+                "fr": "Topinambour",
+                "de": "Topinambur",
+                "es": "Tupinambo"
+              }
+            },
+            {
+              "value": "leek",
+              "label": { "en": "Leek", "fr": "Poireau", "de": "Lauch", "es": "Puerro" }
+            },
+            {
+              "value": "lettuce",
+              "label": { "en": "Lettuce", "fr": "Laitue", "de": "Kopfsalat", "es": "Lechuga" }
+            },
+            {
+              "value": "lambs_lettuce",
+              "label": {
+                "en": "Lamb’s lettuce",
+                "fr": "Mâche",
+                "de": "Feldsalat",
+                "es": "Canónigos"
+              }
+            },
+            {
+              "value": "rocket",
+              "label": { "en": "Rocket", "fr": "Roquette", "de": "Rucola", "es": "Rúcula" }
+            },
+            {
+              "value": "spinach",
+              "label": { "en": "Spinach", "fr": "Épinard", "de": "Spinat", "es": "Espinaca" }
+            },
+            {
+              "value": "chard",
+              "label": { "en": "Swiss chard", "fr": "Blette", "de": "Mangold", "es": "Acelga" }
+            },
+            {
+              "value": "endive",
+              "label": {
+                "en": "Endive and escarole",
+                "fr": "Chicorée frisée et scarole",
+                "de": "Endivie",
+                "es": "Escarola"
+              }
+            },
+            {
+              "value": "cabbage",
+              "label": { "en": "Cabbage", "fr": "Chou pommé", "de": "Kopfkohl", "es": "Repollo" }
+            },
+            {
+              "value": "brussels_sprouts",
+              "label": {
+                "en": "Brussels sprouts",
+                "fr": "Chou de Bruxelles",
+                "de": "Rosenkohl",
+                "es": "Col de Bruselas"
+              }
+            },
+            {
+              "value": "kale",
+              "label": { "en": "Kale", "fr": "Chou kale", "de": "Grünkohl", "es": "Col rizada" }
+            },
+            {
+              "value": "chinese_cabbage",
+              "label": {
+                "en": "Chinese cabbage",
+                "fr": "Chou chinois",
+                "de": "Chinakohl",
+                "es": "Col china"
+              }
+            },
+            {
+              "value": "kohlrabi",
+              "label": { "en": "Kohlrabi", "fr": "Chou-rave", "de": "Kohlrabi", "es": "Colinabo" }
+            },
+            {
+              "value": "celery",
+              "label": {
+                "en": "Celery",
+                "fr": "Céleri branche",
+                "de": "Staudensellerie",
+                "es": "Apio"
+              }
+            },
+            {
+              "value": "fennel",
+              "label": {
+                "en": "Florence fennel",
+                "fr": "Fenouil",
+                "de": "Knollenfenchel",
+                "es": "Hinojo"
+              }
+            },
+            {
+              "value": "asparagus",
+              "label": { "en": "Asparagus", "fr": "Asperge", "de": "Spargel", "es": "Espárrago" }
+            },
+            {
+              "value": "rhubarb",
+              "label": { "en": "Rhubarb", "fr": "Rhubarbe", "de": "Rhabarber", "es": "Ruibarbo" }
+            },
+            {
+              "value": "broccoli",
+              "label": { "en": "Broccoli", "fr": "Brocoli", "de": "Brokkoli", "es": "Brócoli" }
+            },
+            {
+              "value": "cauliflower",
+              "label": {
+                "en": "Cauliflower",
+                "fr": "Chou-fleur",
+                "de": "Blumenkohl",
+                "es": "Coliflor"
+              }
+            },
+            {
+              "value": "artichoke",
+              "label": {
+                "en": "Artichoke",
+                "fr": "Artichaut",
+                "de": "Artischocke",
+                "es": "Alcachofa"
+              }
+            },
+            {
+              "value": "basil",
+              "label": { "en": "Basil", "fr": "Basilic", "de": "Basilikum", "es": "Albahaca" }
+            },
+            {
+              "value": "parsley",
+              "label": { "en": "Parsley", "fr": "Persil", "de": "Petersilie", "es": "Perejil" }
+            },
+            {
+              "value": "chives",
+              "label": {
+                "en": "Chives",
+                "fr": "Ciboulette",
+                "de": "Schnittlauch",
+                "es": "Cebollino"
+              }
+            },
+            {
+              "value": "coriander",
+              "label": { "en": "Coriander", "fr": "Coriandre", "de": "Koriander", "es": "Cilantro" }
+            },
+            {
+              "value": "dill",
+              "label": { "en": "Dill", "fr": "Aneth", "de": "Dill", "es": "Eneldo" }
+            },
+            {
+              "value": "chervil",
+              "label": { "en": "Chervil", "fr": "Cerfeuil", "de": "Kerbel", "es": "Perifollo" }
+            },
+            {
+              "value": "thyme",
+              "label": { "en": "Thyme", "fr": "Thym", "de": "Thymian", "es": "Tomillo" }
+            },
+            {
+              "value": "sage",
+              "label": { "en": "Sage", "fr": "Sauge", "de": "Salbei", "es": "Salvia" }
+            },
+            {
+              "value": "rosemary",
+              "label": { "en": "Rosemary", "fr": "Romarin", "de": "Rosmarin", "es": "Romero" }
+            },
+            {
+              "value": "mint",
+              "label": { "en": "Mint", "fr": "Menthe", "de": "Minze", "es": "Menta" }
+            },
+            {
+              "value": "oregano",
+              "label": { "en": "Oregano", "fr": "Origan", "de": "Oregano", "es": "Orégano" }
+            },
+            {
+              "value": "tarragon",
+              "label": { "en": "Tarragon", "fr": "Estragon", "de": "Estragon", "es": "Estragón" }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scene_triggers": [
+    {
+      "key": "daily_summary",
+      "label": {
+        "en": "Daily summary",
+        "fr": "Résumé du jour",
+        "de": "Tageszusammenfassung",
+        "es": "Resumen del día"
+      },
+      "description": {
+        "en": "Every day at the hour of the configuration, with what to do in the garden.",
+        "fr": "Chaque jour à l’heure de la configuration, avec ce qu’il y a à faire au potager.",
+        "de": "Jeden Tag zur Stunde der Konfiguration, mit den Arbeiten im Garten.",
+        "es": "Cada día a la hora de la configuración, con lo que hay que hacer en el huerto."
+      },
+      "fields": [
+        {
+          "key": "has_opening",
+          "type": "select",
+          "label": {
+            "en": "A window starts",
+            "fr": "Une période commence",
+            "de": "Ein Zeitraum beginnt",
+            "es": "Empieza un periodo"
+          },
+          "description": {
+            "en": "Empty: every day.",
+            "fr": "Vide : chaque jour.",
+            "de": "Leer: jeden Tag.",
+            "es": "Vacío: cada día."
+          },
+          "options": [
+            {
+              "value": "yes",
+              "label": {
+                "en": "Only when a window starts",
+                "fr": "Seulement quand une période commence",
+                "de": "Nur wenn ein Zeitraum beginnt",
+                "es": "Solo cuando empieza un periodo"
+              }
+            },
+            {
+              "value": "no",
+              "label": {
+                "en": "Only when none starts",
+                "fr": "Seulement quand aucune ne commence",
+                "de": "Nur wenn keiner beginnt",
+                "es": "Solo cuando no empieza ninguno"
+              }
+            }
+          ]
+        },
+        {
+          "key": "day_type",
+          "type": "multi_select",
+          "label": {
+            "en": "Lunar day types",
+            "fr": "Types de jour lunaire",
+            "de": "Mondtagestypen",
+            "es": "Tipos de día lunar"
+          },
+          "description": {
+            "en": "With the lunar option. Empty: every day.",
+            "fr": "Avec l’option lunaire. Vide : chaque jour.",
+            "de": "Mit der Mondoption. Leer: jeden Tag.",
+            "es": "Con la opción lunar. Vacío: cada día."
+          },
+          "options": [
+            {
+              "value": "fruit",
+              "label": {
+                "en": "Fruit day",
+                "fr": "Jour fruits",
+                "de": "Fruchttag",
+                "es": "Día de fruto"
+              }
+            },
+            {
+              "value": "root",
+              "label": {
+                "en": "Root day",
+                "fr": "Jour racines",
+                "de": "Wurzeltag",
+                "es": "Día de raíz"
+              }
+            },
+            {
+              "value": "flower",
+              "label": {
+                "en": "Flower day",
+                "fr": "Jour fleurs",
+                "de": "Blütentag",
+                "es": "Día de flor"
+              }
+            },
+            {
+              "value": "leaf",
+              "label": {
+                "en": "Leaf day",
+                "fr": "Jour feuilles",
+                "de": "Blatttag",
+                "es": "Día de hoja"
+              }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "date",
+          "type": "string",
+          "label": {
+            "en": "Day (YYYY-MM-DD)",
+            "fr": "Jour (AAAA-MM-JJ)",
+            "de": "Tag (JJJJ-MM-TT)",
+            "es": "Día (AAAA-MM-DD)"
+          }
+        },
+        {
+          "key": "sow_indoors",
+          "type": "string",
+          "label": {
+            "en": "To sow under cover",
+            "fr": "À semer sous abri",
+            "de": "Aussaat unter Glas",
+            "es": "Para sembrar en semillero"
+          }
+        },
+        {
+          "key": "sow_outdoors",
+          "type": "string",
+          "label": {
+            "en": "To sow outdoors",
+            "fr": "À semer en pleine terre",
+            "de": "Aussaat ins Freiland",
+            "es": "Para siembra directa"
+          }
+        },
+        {
+          "key": "plant_out",
+          "type": "string",
+          "label": {
+            "en": "To plant out",
+            "fr": "À planter",
+            "de": "Auszupflanzen",
+            "es": "Para plantar"
+          }
+        },
+        {
+          "key": "harvest",
+          "type": "string",
+          "label": {
+            "en": "To harvest",
+            "fr": "À récolter",
+            "de": "Zu ernten",
+            "es": "Para cosechar"
+          }
+        },
+        {
+          "key": "task_count",
+          "type": "number",
+          "label": {
+            "en": "Open windows",
+            "fr": "Périodes en cours",
+            "de": "Laufende Zeiträume",
+            "es": "Periodos en curso"
+          }
+        },
+        {
+          "key": "opening",
+          "type": "string",
+          "label": {
+            "en": "Starting that day",
+            "fr": "Commençant ce jour-là",
+            "de": "Ab diesem Tag",
+            "es": "Que empiezan ese día"
+          }
+        },
+        {
+          "key": "closing",
+          "type": "string",
+          "label": {
+            "en": "Entering their last week",
+            "fr": "Entrant dans leur dernière semaine",
+            "de": "In ihrer letzten Woche",
+            "es": "Entrando en su última semana"
+          }
+        },
+        {
+          "key": "day_type",
+          "type": "string",
+          "label": {
+            "en": "Lunar day type (fruit, root, flower, leaf)",
+            "fr": "Type de jour lunaire (fruit, root, flower, leaf)",
+            "de": "Mondtagestyp (fruit, root, flower, leaf)",
+            "es": "Tipo de día lunar (fruit, root, flower, leaf)"
+          }
+        },
+        {
+          "key": "day_type_label",
+          "type": "string",
+          "label": {
+            "en": "Lunar day type, in words",
+            "fr": "Type de jour lunaire, en toutes lettres",
+            "de": "Mondtagestyp, ausgeschrieben",
+            "es": "Tipo de día lunar, en palabras"
+          }
+        },
+        {
+          "key": "avoid",
+          "type": "string",
+          "label": {
+            "en": "Day to avoid by the moon (yes, no)",
+            "fr": "Jour à éviter selon la lune (yes, no)",
+            "de": "Ungünstiger Tag nach dem Mond (yes, no)",
+            "es": "Día desfavorable según la luna (yes, no)"
+          }
+        },
+        {
+          "key": "favourable",
+          "type": "string",
+          "label": {
+            "en": "Crops favoured by the moon",
+            "fr": "Cultures favorisées par la lune",
+            "de": "Vom Mond begünstigte Kulturen",
+            "es": "Cultivos favorecidos por la luna"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary, to send in a message",
+            "fr": "Résumé, à envoyer dans un message",
+            "de": "Zusammenfassung für eine Nachricht",
+            "es": "Resumen, para enviar en un mensaje"
+          }
+        }
+      ]
+    },
+    {
+      "key": "window_opened",
+      "label": {
+        "en": "A window starts",
+        "fr": "Une période commence",
+        "de": "Ein Zeitraum beginnt",
+        "es": "Empieza un periodo"
+      },
+      "description": {
+        "en": "At the hour of the configuration, on the first day of the window of a crop and a task.",
+        "fr": "À l’heure de la configuration, le premier jour de la période d’une culture et d’une tâche.",
+        "de": "Zur Stunde der Konfiguration, am ersten Tag des Zeitraums einer Kultur und einer Arbeit.",
+        "es": "A la hora de la configuración, el primer día del periodo de un cultivo y una tarea."
+      },
+      "fields": [
+        {
+          "key": "task",
+          "type": "multi_select",
+          "label": { "en": "Tasks", "fr": "Tâches", "de": "Arbeiten", "es": "Tareas" },
+          "description": {
+            "en": "Empty: every task.",
+            "fr": "Vide : toutes les tâches.",
+            "de": "Leer: alle Arbeiten.",
+            "es": "Vacío: todas las tareas."
+          },
+          "options": [
+            {
+              "value": "sow_indoors",
+              "label": {
+                "en": "Sow under cover",
+                "fr": "Semis sous abri",
+                "de": "Aussaat unter Glas",
+                "es": "Siembra en semillero"
+              }
+            },
+            {
+              "value": "sow_outdoors",
+              "label": {
+                "en": "Sow outdoors",
+                "fr": "Semis en pleine terre",
+                "de": "Aussaat ins Freiland",
+                "es": "Siembra directa"
+              }
+            },
+            {
+              "value": "plant_out",
+              "label": {
+                "en": "Plant out",
+                "fr": "Plantation",
+                "de": "Auspflanzen",
+                "es": "Plantación"
+              }
+            },
+            {
+              "value": "harvest",
+              "label": { "en": "Harvest", "fr": "Récolte", "de": "Ernte", "es": "Cosecha" }
+            }
+          ]
+        },
+        {
+          "key": "crop",
+          "type": "multi_select",
+          "label": { "en": "Crops", "fr": "Cultures", "de": "Kulturen", "es": "Cultivos" },
+          "description": {
+            "en": "Empty: every crop of the configuration.",
+            "fr": "Vide : toutes les cultures de la configuration.",
+            "de": "Leer: alle Kulturen der Konfiguration.",
+            "es": "Vacío: todos los cultivos de la configuración."
+          },
+          "options": [
+            {
+              "value": "tomato",
+              "label": { "en": "Tomato", "fr": "Tomate", "de": "Tomate", "es": "Tomate" }
+            },
+            {
+              "value": "pepper",
+              "label": {
+                "en": "Pepper and chili",
+                "fr": "Poivron et piment",
+                "de": "Paprika und Chili",
+                "es": "Pimiento y guindilla"
+              }
+            },
+            {
+              "value": "eggplant",
+              "label": { "en": "Eggplant", "fr": "Aubergine", "de": "Aubergine", "es": "Berenjena" }
+            },
+            {
+              "value": "cucumber",
+              "label": { "en": "Cucumber", "fr": "Concombre", "de": "Gurke", "es": "Pepino" }
+            },
+            {
+              "value": "zucchini",
+              "label": { "en": "Zucchini", "fr": "Courgette", "de": "Zucchini", "es": "Calabacín" }
+            },
+            {
+              "value": "squash",
+              "label": {
+                "en": "Winter squash",
+                "fr": "Courge et potiron",
+                "de": "Kürbis",
+                "es": "Calabaza"
+              }
+            },
+            {
+              "value": "melon",
+              "label": { "en": "Melon", "fr": "Melon", "de": "Melone", "es": "Melón" }
+            },
+            {
+              "value": "bean",
+              "label": {
+                "en": "Green bean",
+                "fr": "Haricot",
+                "de": "Gartenbohne",
+                "es": "Judía verde"
+              }
+            },
+            {
+              "value": "pea",
+              "label": { "en": "Pea", "fr": "Petit pois", "de": "Erbse", "es": "Guisante" }
+            },
+            {
+              "value": "broad_bean",
+              "label": { "en": "Broad bean", "fr": "Fève", "de": "Dicke Bohne", "es": "Haba" }
+            },
+            {
+              "value": "sweet_corn",
+              "label": {
+                "en": "Sweet corn",
+                "fr": "Maïs doux",
+                "de": "Zuckermais",
+                "es": "Maíz dulce"
+              }
+            },
+            {
+              "value": "strawberry",
+              "label": { "en": "Strawberry", "fr": "Fraisier", "de": "Erdbeere", "es": "Fresa" }
+            },
+            {
+              "value": "carrot",
+              "label": { "en": "Carrot", "fr": "Carotte", "de": "Möhre", "es": "Zanahoria" }
+            },
+            {
+              "value": "radish",
+              "label": { "en": "Radish", "fr": "Radis", "de": "Radieschen", "es": "Rábano" }
+            },
+            {
+              "value": "winter_radish",
+              "label": {
+                "en": "Winter radish",
+                "fr": "Radis d’hiver",
+                "de": "Winterrettich",
+                "es": "Rábano de invierno"
+              }
+            },
+            {
+              "value": "beetroot",
+              "label": { "en": "Beetroot", "fr": "Betterave", "de": "Rote Bete", "es": "Remolacha" }
+            },
+            {
+              "value": "turnip",
+              "label": { "en": "Turnip", "fr": "Navet", "de": "Speiserübe", "es": "Nabo" }
+            },
+            {
+              "value": "parsnip",
+              "label": { "en": "Parsnip", "fr": "Panais", "de": "Pastinake", "es": "Chirivía" }
+            },
+            {
+              "value": "potato",
+              "label": { "en": "Potato", "fr": "Pomme de terre", "de": "Kartoffel", "es": "Patata" }
+            },
+            {
+              "value": "onion",
+              "label": { "en": "Onion", "fr": "Oignon", "de": "Zwiebel", "es": "Cebolla" }
+            },
+            {
+              "value": "shallot",
+              "label": { "en": "Shallot", "fr": "Échalote", "de": "Schalotte", "es": "Chalota" }
+            },
+            {
+              "value": "garlic",
+              "label": { "en": "Garlic", "fr": "Ail", "de": "Knoblauch", "es": "Ajo" }
+            },
+            {
+              "value": "celeriac",
+              "label": {
+                "en": "Celeriac",
+                "fr": "Céleri-rave",
+                "de": "Knollensellerie",
+                "es": "Apionabo"
+              }
+            },
+            {
+              "value": "jerusalem_artichoke",
+              "label": {
+                "en": "Jerusalem artichoke",
+                "fr": "Topinambour",
+                "de": "Topinambur",
+                "es": "Tupinambo"
+              }
+            },
+            {
+              "value": "leek",
+              "label": { "en": "Leek", "fr": "Poireau", "de": "Lauch", "es": "Puerro" }
+            },
+            {
+              "value": "lettuce",
+              "label": { "en": "Lettuce", "fr": "Laitue", "de": "Kopfsalat", "es": "Lechuga" }
+            },
+            {
+              "value": "lambs_lettuce",
+              "label": {
+                "en": "Lamb’s lettuce",
+                "fr": "Mâche",
+                "de": "Feldsalat",
+                "es": "Canónigos"
+              }
+            },
+            {
+              "value": "rocket",
+              "label": { "en": "Rocket", "fr": "Roquette", "de": "Rucola", "es": "Rúcula" }
+            },
+            {
+              "value": "spinach",
+              "label": { "en": "Spinach", "fr": "Épinard", "de": "Spinat", "es": "Espinaca" }
+            },
+            {
+              "value": "chard",
+              "label": { "en": "Swiss chard", "fr": "Blette", "de": "Mangold", "es": "Acelga" }
+            },
+            {
+              "value": "endive",
+              "label": {
+                "en": "Endive and escarole",
+                "fr": "Chicorée frisée et scarole",
+                "de": "Endivie",
+                "es": "Escarola"
+              }
+            },
+            {
+              "value": "cabbage",
+              "label": { "en": "Cabbage", "fr": "Chou pommé", "de": "Kopfkohl", "es": "Repollo" }
+            },
+            {
+              "value": "brussels_sprouts",
+              "label": {
+                "en": "Brussels sprouts",
+                "fr": "Chou de Bruxelles",
+                "de": "Rosenkohl",
+                "es": "Col de Bruselas"
+              }
+            },
+            {
+              "value": "kale",
+              "label": { "en": "Kale", "fr": "Chou kale", "de": "Grünkohl", "es": "Col rizada" }
+            },
+            {
+              "value": "chinese_cabbage",
+              "label": {
+                "en": "Chinese cabbage",
+                "fr": "Chou chinois",
+                "de": "Chinakohl",
+                "es": "Col china"
+              }
+            },
+            {
+              "value": "kohlrabi",
+              "label": { "en": "Kohlrabi", "fr": "Chou-rave", "de": "Kohlrabi", "es": "Colinabo" }
+            },
+            {
+              "value": "celery",
+              "label": {
+                "en": "Celery",
+                "fr": "Céleri branche",
+                "de": "Staudensellerie",
+                "es": "Apio"
+              }
+            },
+            {
+              "value": "fennel",
+              "label": {
+                "en": "Florence fennel",
+                "fr": "Fenouil",
+                "de": "Knollenfenchel",
+                "es": "Hinojo"
+              }
+            },
+            {
+              "value": "asparagus",
+              "label": { "en": "Asparagus", "fr": "Asperge", "de": "Spargel", "es": "Espárrago" }
+            },
+            {
+              "value": "rhubarb",
+              "label": { "en": "Rhubarb", "fr": "Rhubarbe", "de": "Rhabarber", "es": "Ruibarbo" }
+            },
+            {
+              "value": "broccoli",
+              "label": { "en": "Broccoli", "fr": "Brocoli", "de": "Brokkoli", "es": "Brócoli" }
+            },
+            {
+              "value": "cauliflower",
+              "label": {
+                "en": "Cauliflower",
+                "fr": "Chou-fleur",
+                "de": "Blumenkohl",
+                "es": "Coliflor"
+              }
+            },
+            {
+              "value": "artichoke",
+              "label": {
+                "en": "Artichoke",
+                "fr": "Artichaut",
+                "de": "Artischocke",
+                "es": "Alcachofa"
+              }
+            },
+            {
+              "value": "basil",
+              "label": { "en": "Basil", "fr": "Basilic", "de": "Basilikum", "es": "Albahaca" }
+            },
+            {
+              "value": "parsley",
+              "label": { "en": "Parsley", "fr": "Persil", "de": "Petersilie", "es": "Perejil" }
+            },
+            {
+              "value": "chives",
+              "label": {
+                "en": "Chives",
+                "fr": "Ciboulette",
+                "de": "Schnittlauch",
+                "es": "Cebollino"
+              }
+            },
+            {
+              "value": "coriander",
+              "label": { "en": "Coriander", "fr": "Coriandre", "de": "Koriander", "es": "Cilantro" }
+            },
+            {
+              "value": "dill",
+              "label": { "en": "Dill", "fr": "Aneth", "de": "Dill", "es": "Eneldo" }
+            },
+            {
+              "value": "chervil",
+              "label": { "en": "Chervil", "fr": "Cerfeuil", "de": "Kerbel", "es": "Perifollo" }
+            },
+            {
+              "value": "thyme",
+              "label": { "en": "Thyme", "fr": "Thym", "de": "Thymian", "es": "Tomillo" }
+            },
+            {
+              "value": "sage",
+              "label": { "en": "Sage", "fr": "Sauge", "de": "Salbei", "es": "Salvia" }
+            },
+            {
+              "value": "rosemary",
+              "label": { "en": "Rosemary", "fr": "Romarin", "de": "Rosmarin", "es": "Romero" }
+            },
+            {
+              "value": "mint",
+              "label": { "en": "Mint", "fr": "Menthe", "de": "Minze", "es": "Menta" }
+            },
+            {
+              "value": "oregano",
+              "label": { "en": "Oregano", "fr": "Origan", "de": "Oregano", "es": "Orégano" }
+            },
+            {
+              "value": "tarragon",
+              "label": { "en": "Tarragon", "fr": "Estragon", "de": "Estragon", "es": "Estragón" }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "crop",
+          "type": "string",
+          "label": {
+            "en": "Crop (key)",
+            "fr": "Culture (clé)",
+            "de": "Kultur (Schlüssel)",
+            "es": "Cultivo (clave)"
+          }
+        },
+        {
+          "key": "crop_label",
+          "type": "string",
+          "label": {
+            "en": "Crop, in words",
+            "fr": "Culture, en toutes lettres",
+            "de": "Kultur, ausgeschrieben",
+            "es": "Cultivo, en palabras"
+          }
+        },
+        {
+          "key": "task",
+          "type": "string",
+          "label": {
+            "en": "Task (sow_indoors, sow_outdoors, plant_out, harvest)",
+            "fr": "Tâche (sow_indoors, sow_outdoors, plant_out, harvest)",
+            "de": "Arbeit (sow_indoors, sow_outdoors, plant_out, harvest)",
+            "es": "Tarea (sow_indoors, sow_outdoors, plant_out, harvest)"
+          }
+        },
+        {
+          "key": "task_label",
+          "type": "string",
+          "label": {
+            "en": "Task, in words",
+            "fr": "Tâche, en toutes lettres",
+            "de": "Arbeit, ausgeschrieben",
+            "es": "Tarea, en palabras"
+          }
+        },
+        {
+          "key": "start",
+          "type": "string",
+          "label": {
+            "en": "First day (YYYY-MM-DD)",
+            "fr": "Premier jour (AAAA-MM-JJ)",
+            "de": "Erster Tag (JJJJ-MM-TT)",
+            "es": "Primer día (AAAA-MM-DD)"
+          }
+        },
+        {
+          "key": "end",
+          "type": "string",
+          "label": {
+            "en": "Last day (YYYY-MM-DD)",
+            "fr": "Dernier jour (AAAA-MM-JJ)",
+            "de": "Letzter Tag (JJJJ-MM-TT)",
+            "es": "Último día (AAAA-MM-DD)"
+          }
+        },
+        {
+          "key": "end_label",
+          "type": "string",
+          "label": {
+            "en": "Last day, in words",
+            "fr": "Dernier jour, en toutes lettres",
+            "de": "Letzter Tag, ausgeschrieben",
+            "es": "Último día, en palabras"
+          }
+        },
+        {
+          "key": "lunar_days",
+          "type": "string",
+          "label": {
+            "en": "Favourable lunar days",
+            "fr": "Jours lunaires favorables",
+            "de": "Günstige Mondtage",
+            "es": "Días lunares favorables"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary, to send in a message",
+            "fr": "Résumé, à envoyer dans un message",
+            "de": "Zusammenfassung für eine Nachricht",
+            "es": "Resumen, para enviar en un mensaje"
+          }
+        }
+      ]
+    },
+    {
+      "key": "window_closing",
+      "label": {
+        "en": "Last week of a window",
+        "fr": "Dernière semaine d’une période",
+        "de": "Letzte Woche eines Zeitraums",
+        "es": "Última semana de un periodo"
+      },
+      "description": {
+        "en": "At the hour of the configuration, seven days before the end of the window of a crop and a task (windows of two weeks or more).",
+        "fr": "À l’heure de la configuration, sept jours avant la fin de la période d’une culture et d’une tâche (périodes de deux semaines ou plus).",
+        "de": "Zur Stunde der Konfiguration, sieben Tage vor dem Ende des Zeitraums einer Kultur und einer Arbeit (Zeiträume ab zwei Wochen).",
+        "es": "A la hora de la configuración, siete días antes del final del periodo de un cultivo y una tarea (periodos de dos semanas o más)."
+      },
+      "fields": [
+        {
+          "key": "task",
+          "type": "multi_select",
+          "label": { "en": "Tasks", "fr": "Tâches", "de": "Arbeiten", "es": "Tareas" },
+          "description": {
+            "en": "Empty: every task.",
+            "fr": "Vide : toutes les tâches.",
+            "de": "Leer: alle Arbeiten.",
+            "es": "Vacío: todas las tareas."
+          },
+          "options": [
+            {
+              "value": "sow_indoors",
+              "label": {
+                "en": "Sow under cover",
+                "fr": "Semis sous abri",
+                "de": "Aussaat unter Glas",
+                "es": "Siembra en semillero"
+              }
+            },
+            {
+              "value": "sow_outdoors",
+              "label": {
+                "en": "Sow outdoors",
+                "fr": "Semis en pleine terre",
+                "de": "Aussaat ins Freiland",
+                "es": "Siembra directa"
+              }
+            },
+            {
+              "value": "plant_out",
+              "label": {
+                "en": "Plant out",
+                "fr": "Plantation",
+                "de": "Auspflanzen",
+                "es": "Plantación"
+              }
+            },
+            {
+              "value": "harvest",
+              "label": { "en": "Harvest", "fr": "Récolte", "de": "Ernte", "es": "Cosecha" }
+            }
+          ]
+        },
+        {
+          "key": "crop",
+          "type": "multi_select",
+          "label": { "en": "Crops", "fr": "Cultures", "de": "Kulturen", "es": "Cultivos" },
+          "description": {
+            "en": "Empty: every crop of the configuration.",
+            "fr": "Vide : toutes les cultures de la configuration.",
+            "de": "Leer: alle Kulturen der Konfiguration.",
+            "es": "Vacío: todos los cultivos de la configuración."
+          },
+          "options": [
+            {
+              "value": "tomato",
+              "label": { "en": "Tomato", "fr": "Tomate", "de": "Tomate", "es": "Tomate" }
+            },
+            {
+              "value": "pepper",
+              "label": {
+                "en": "Pepper and chili",
+                "fr": "Poivron et piment",
+                "de": "Paprika und Chili",
+                "es": "Pimiento y guindilla"
+              }
+            },
+            {
+              "value": "eggplant",
+              "label": { "en": "Eggplant", "fr": "Aubergine", "de": "Aubergine", "es": "Berenjena" }
+            },
+            {
+              "value": "cucumber",
+              "label": { "en": "Cucumber", "fr": "Concombre", "de": "Gurke", "es": "Pepino" }
+            },
+            {
+              "value": "zucchini",
+              "label": { "en": "Zucchini", "fr": "Courgette", "de": "Zucchini", "es": "Calabacín" }
+            },
+            {
+              "value": "squash",
+              "label": {
+                "en": "Winter squash",
+                "fr": "Courge et potiron",
+                "de": "Kürbis",
+                "es": "Calabaza"
+              }
+            },
+            {
+              "value": "melon",
+              "label": { "en": "Melon", "fr": "Melon", "de": "Melone", "es": "Melón" }
+            },
+            {
+              "value": "bean",
+              "label": {
+                "en": "Green bean",
+                "fr": "Haricot",
+                "de": "Gartenbohne",
+                "es": "Judía verde"
+              }
+            },
+            {
+              "value": "pea",
+              "label": { "en": "Pea", "fr": "Petit pois", "de": "Erbse", "es": "Guisante" }
+            },
+            {
+              "value": "broad_bean",
+              "label": { "en": "Broad bean", "fr": "Fève", "de": "Dicke Bohne", "es": "Haba" }
+            },
+            {
+              "value": "sweet_corn",
+              "label": {
+                "en": "Sweet corn",
+                "fr": "Maïs doux",
+                "de": "Zuckermais",
+                "es": "Maíz dulce"
+              }
+            },
+            {
+              "value": "strawberry",
+              "label": { "en": "Strawberry", "fr": "Fraisier", "de": "Erdbeere", "es": "Fresa" }
+            },
+            {
+              "value": "carrot",
+              "label": { "en": "Carrot", "fr": "Carotte", "de": "Möhre", "es": "Zanahoria" }
+            },
+            {
+              "value": "radish",
+              "label": { "en": "Radish", "fr": "Radis", "de": "Radieschen", "es": "Rábano" }
+            },
+            {
+              "value": "winter_radish",
+              "label": {
+                "en": "Winter radish",
+                "fr": "Radis d’hiver",
+                "de": "Winterrettich",
+                "es": "Rábano de invierno"
+              }
+            },
+            {
+              "value": "beetroot",
+              "label": { "en": "Beetroot", "fr": "Betterave", "de": "Rote Bete", "es": "Remolacha" }
+            },
+            {
+              "value": "turnip",
+              "label": { "en": "Turnip", "fr": "Navet", "de": "Speiserübe", "es": "Nabo" }
+            },
+            {
+              "value": "parsnip",
+              "label": { "en": "Parsnip", "fr": "Panais", "de": "Pastinake", "es": "Chirivía" }
+            },
+            {
+              "value": "potato",
+              "label": { "en": "Potato", "fr": "Pomme de terre", "de": "Kartoffel", "es": "Patata" }
+            },
+            {
+              "value": "onion",
+              "label": { "en": "Onion", "fr": "Oignon", "de": "Zwiebel", "es": "Cebolla" }
+            },
+            {
+              "value": "shallot",
+              "label": { "en": "Shallot", "fr": "Échalote", "de": "Schalotte", "es": "Chalota" }
+            },
+            {
+              "value": "garlic",
+              "label": { "en": "Garlic", "fr": "Ail", "de": "Knoblauch", "es": "Ajo" }
+            },
+            {
+              "value": "celeriac",
+              "label": {
+                "en": "Celeriac",
+                "fr": "Céleri-rave",
+                "de": "Knollensellerie",
+                "es": "Apionabo"
+              }
+            },
+            {
+              "value": "jerusalem_artichoke",
+              "label": {
+                "en": "Jerusalem artichoke",
+                "fr": "Topinambour",
+                "de": "Topinambur",
+                "es": "Tupinambo"
+              }
+            },
+            {
+              "value": "leek",
+              "label": { "en": "Leek", "fr": "Poireau", "de": "Lauch", "es": "Puerro" }
+            },
+            {
+              "value": "lettuce",
+              "label": { "en": "Lettuce", "fr": "Laitue", "de": "Kopfsalat", "es": "Lechuga" }
+            },
+            {
+              "value": "lambs_lettuce",
+              "label": {
+                "en": "Lamb’s lettuce",
+                "fr": "Mâche",
+                "de": "Feldsalat",
+                "es": "Canónigos"
+              }
+            },
+            {
+              "value": "rocket",
+              "label": { "en": "Rocket", "fr": "Roquette", "de": "Rucola", "es": "Rúcula" }
+            },
+            {
+              "value": "spinach",
+              "label": { "en": "Spinach", "fr": "Épinard", "de": "Spinat", "es": "Espinaca" }
+            },
+            {
+              "value": "chard",
+              "label": { "en": "Swiss chard", "fr": "Blette", "de": "Mangold", "es": "Acelga" }
+            },
+            {
+              "value": "endive",
+              "label": {
+                "en": "Endive and escarole",
+                "fr": "Chicorée frisée et scarole",
+                "de": "Endivie",
+                "es": "Escarola"
+              }
+            },
+            {
+              "value": "cabbage",
+              "label": { "en": "Cabbage", "fr": "Chou pommé", "de": "Kopfkohl", "es": "Repollo" }
+            },
+            {
+              "value": "brussels_sprouts",
+              "label": {
+                "en": "Brussels sprouts",
+                "fr": "Chou de Bruxelles",
+                "de": "Rosenkohl",
+                "es": "Col de Bruselas"
+              }
+            },
+            {
+              "value": "kale",
+              "label": { "en": "Kale", "fr": "Chou kale", "de": "Grünkohl", "es": "Col rizada" }
+            },
+            {
+              "value": "chinese_cabbage",
+              "label": {
+                "en": "Chinese cabbage",
+                "fr": "Chou chinois",
+                "de": "Chinakohl",
+                "es": "Col china"
+              }
+            },
+            {
+              "value": "kohlrabi",
+              "label": { "en": "Kohlrabi", "fr": "Chou-rave", "de": "Kohlrabi", "es": "Colinabo" }
+            },
+            {
+              "value": "celery",
+              "label": {
+                "en": "Celery",
+                "fr": "Céleri branche",
+                "de": "Staudensellerie",
+                "es": "Apio"
+              }
+            },
+            {
+              "value": "fennel",
+              "label": {
+                "en": "Florence fennel",
+                "fr": "Fenouil",
+                "de": "Knollenfenchel",
+                "es": "Hinojo"
+              }
+            },
+            {
+              "value": "asparagus",
+              "label": { "en": "Asparagus", "fr": "Asperge", "de": "Spargel", "es": "Espárrago" }
+            },
+            {
+              "value": "rhubarb",
+              "label": { "en": "Rhubarb", "fr": "Rhubarbe", "de": "Rhabarber", "es": "Ruibarbo" }
+            },
+            {
+              "value": "broccoli",
+              "label": { "en": "Broccoli", "fr": "Brocoli", "de": "Brokkoli", "es": "Brócoli" }
+            },
+            {
+              "value": "cauliflower",
+              "label": {
+                "en": "Cauliflower",
+                "fr": "Chou-fleur",
+                "de": "Blumenkohl",
+                "es": "Coliflor"
+              }
+            },
+            {
+              "value": "artichoke",
+              "label": {
+                "en": "Artichoke",
+                "fr": "Artichaut",
+                "de": "Artischocke",
+                "es": "Alcachofa"
+              }
+            },
+            {
+              "value": "basil",
+              "label": { "en": "Basil", "fr": "Basilic", "de": "Basilikum", "es": "Albahaca" }
+            },
+            {
+              "value": "parsley",
+              "label": { "en": "Parsley", "fr": "Persil", "de": "Petersilie", "es": "Perejil" }
+            },
+            {
+              "value": "chives",
+              "label": {
+                "en": "Chives",
+                "fr": "Ciboulette",
+                "de": "Schnittlauch",
+                "es": "Cebollino"
+              }
+            },
+            {
+              "value": "coriander",
+              "label": { "en": "Coriander", "fr": "Coriandre", "de": "Koriander", "es": "Cilantro" }
+            },
+            {
+              "value": "dill",
+              "label": { "en": "Dill", "fr": "Aneth", "de": "Dill", "es": "Eneldo" }
+            },
+            {
+              "value": "chervil",
+              "label": { "en": "Chervil", "fr": "Cerfeuil", "de": "Kerbel", "es": "Perifollo" }
+            },
+            {
+              "value": "thyme",
+              "label": { "en": "Thyme", "fr": "Thym", "de": "Thymian", "es": "Tomillo" }
+            },
+            {
+              "value": "sage",
+              "label": { "en": "Sage", "fr": "Sauge", "de": "Salbei", "es": "Salvia" }
+            },
+            {
+              "value": "rosemary",
+              "label": { "en": "Rosemary", "fr": "Romarin", "de": "Rosmarin", "es": "Romero" }
+            },
+            {
+              "value": "mint",
+              "label": { "en": "Mint", "fr": "Menthe", "de": "Minze", "es": "Menta" }
+            },
+            {
+              "value": "oregano",
+              "label": { "en": "Oregano", "fr": "Origan", "de": "Oregano", "es": "Orégano" }
+            },
+            {
+              "value": "tarragon",
+              "label": { "en": "Tarragon", "fr": "Estragon", "de": "Estragon", "es": "Estragón" }
+            }
+          ]
+        }
+      ],
+      "variables": [
+        {
+          "key": "crop",
+          "type": "string",
+          "label": {
+            "en": "Crop (key)",
+            "fr": "Culture (clé)",
+            "de": "Kultur (Schlüssel)",
+            "es": "Cultivo (clave)"
+          }
+        },
+        {
+          "key": "crop_label",
+          "type": "string",
+          "label": {
+            "en": "Crop, in words",
+            "fr": "Culture, en toutes lettres",
+            "de": "Kultur, ausgeschrieben",
+            "es": "Cultivo, en palabras"
+          }
+        },
+        {
+          "key": "task",
+          "type": "string",
+          "label": {
+            "en": "Task (sow_indoors, sow_outdoors, plant_out, harvest)",
+            "fr": "Tâche (sow_indoors, sow_outdoors, plant_out, harvest)",
+            "de": "Arbeit (sow_indoors, sow_outdoors, plant_out, harvest)",
+            "es": "Tarea (sow_indoors, sow_outdoors, plant_out, harvest)"
+          }
+        },
+        {
+          "key": "task_label",
+          "type": "string",
+          "label": {
+            "en": "Task, in words",
+            "fr": "Tâche, en toutes lettres",
+            "de": "Arbeit, ausgeschrieben",
+            "es": "Tarea, en palabras"
+          }
+        },
+        {
+          "key": "start",
+          "type": "string",
+          "label": {
+            "en": "First day (YYYY-MM-DD)",
+            "fr": "Premier jour (AAAA-MM-JJ)",
+            "de": "Erster Tag (JJJJ-MM-TT)",
+            "es": "Primer día (AAAA-MM-DD)"
+          }
+        },
+        {
+          "key": "end",
+          "type": "string",
+          "label": {
+            "en": "Last day (YYYY-MM-DD)",
+            "fr": "Dernier jour (AAAA-MM-JJ)",
+            "de": "Letzter Tag (JJJJ-MM-TT)",
+            "es": "Último día (AAAA-MM-DD)"
+          }
+        },
+        {
+          "key": "end_label",
+          "type": "string",
+          "label": {
+            "en": "Last day, in words",
+            "fr": "Dernier jour, en toutes lettres",
+            "de": "Letzter Tag, ausgeschrieben",
+            "es": "Último día, en palabras"
+          }
+        },
+        {
+          "key": "lunar_days",
+          "type": "string",
+          "label": {
+            "en": "Favourable lunar days",
+            "fr": "Jours lunaires favorables",
+            "de": "Günstige Mondtage",
+            "es": "Días lunares favorables"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary, to send in a message",
+            "fr": "Résumé, à envoyer dans un message",
+            "de": "Zusammenfassung für eine Nachricht",
+            "es": "Resumen, para enviar en un mensaje"
+          }
+        }
+      ]
+    }
+  ],
+  "scene_actions": [
+    {
+      "key": "get_garden_tasks",
+      "label": {
+        "en": "Get the garden tasks",
+        "fr": "Obtenir les travaux du potager",
+        "de": "Gartenarbeiten abrufen",
+        "es": "Obtener las tareas del huerto"
+      },
+      "description": {
+        "en": "Today or tomorrow: what to sow, plant out and harvest, what starts or ends, the lunar day, and a sentence to send in a message.",
+        "fr": "Aujourd’hui ou demain : quoi semer, planter et récolter, ce qui commence ou se termine, le jour lunaire, et une phrase à envoyer dans un message.",
+        "de": "Heute oder morgen: was zu säen, pflanzen und ernten ist, was beginnt oder endet, der Mondtag und ein Satz für eine Nachricht.",
+        "es": "Hoy o mañana: qué sembrar, plantar y cosechar, qué empieza o termina, el día lunar y una frase para enviar en un mensaje."
+      },
+      "timeout_seconds": 10,
+      "fields": [
+        {
+          "key": "day",
+          "type": "select",
+          "default": "today",
+          "label": { "en": "Day", "fr": "Jour", "de": "Tag", "es": "Día" },
+          "options": [
+            {
+              "value": "today",
+              "label": { "en": "Today", "fr": "Aujourd’hui", "de": "Heute", "es": "Hoy" }
+            },
+            {
+              "value": "tomorrow",
+              "label": { "en": "Tomorrow", "fr": "Demain", "de": "Morgen", "es": "Mañana" }
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "key": "date",
+          "type": "string",
+          "label": {
+            "en": "Day (YYYY-MM-DD)",
+            "fr": "Jour (AAAA-MM-JJ)",
+            "de": "Tag (JJJJ-MM-TT)",
+            "es": "Día (AAAA-MM-DD)"
+          }
+        },
+        {
+          "key": "sow_indoors",
+          "type": "string",
+          "label": {
+            "en": "To sow under cover",
+            "fr": "À semer sous abri",
+            "de": "Aussaat unter Glas",
+            "es": "Para sembrar en semillero"
+          }
+        },
+        {
+          "key": "sow_outdoors",
+          "type": "string",
+          "label": {
+            "en": "To sow outdoors",
+            "fr": "À semer en pleine terre",
+            "de": "Aussaat ins Freiland",
+            "es": "Para siembra directa"
+          }
+        },
+        {
+          "key": "plant_out",
+          "type": "string",
+          "label": {
+            "en": "To plant out",
+            "fr": "À planter",
+            "de": "Auszupflanzen",
+            "es": "Para plantar"
+          }
+        },
+        {
+          "key": "harvest",
+          "type": "string",
+          "label": {
+            "en": "To harvest",
+            "fr": "À récolter",
+            "de": "Zu ernten",
+            "es": "Para cosechar"
+          }
+        },
+        {
+          "key": "task_count",
+          "type": "number",
+          "label": {
+            "en": "Open windows",
+            "fr": "Périodes en cours",
+            "de": "Laufende Zeiträume",
+            "es": "Periodos en curso"
+          }
+        },
+        {
+          "key": "opening",
+          "type": "string",
+          "label": {
+            "en": "Starting that day",
+            "fr": "Commençant ce jour-là",
+            "de": "Ab diesem Tag",
+            "es": "Que empiezan ese día"
+          }
+        },
+        {
+          "key": "has_opening",
+          "type": "string",
+          "label": {
+            "en": "A window starts (yes, no)",
+            "fr": "Une période commence (yes, no)",
+            "de": "Ein Zeitraum beginnt (yes, no)",
+            "es": "Empieza un periodo (yes, no)"
+          }
+        },
+        {
+          "key": "closing",
+          "type": "string",
+          "label": {
+            "en": "Entering their last week",
+            "fr": "Entrant dans leur dernière semaine",
+            "de": "In ihrer letzten Woche",
+            "es": "Entrando en su última semana"
+          }
+        },
+        {
+          "key": "day_type",
+          "type": "string",
+          "label": {
+            "en": "Lunar day type (fruit, root, flower, leaf)",
+            "fr": "Type de jour lunaire (fruit, root, flower, leaf)",
+            "de": "Mondtagestyp (fruit, root, flower, leaf)",
+            "es": "Tipo de día lunar (fruit, root, flower, leaf)"
+          }
+        },
+        {
+          "key": "day_type_label",
+          "type": "string",
+          "label": {
+            "en": "Lunar day type, in words",
+            "fr": "Type de jour lunaire, en toutes lettres",
+            "de": "Mondtagestyp, ausgeschrieben",
+            "es": "Tipo de día lunar, en palabras"
+          }
+        },
+        {
+          "key": "avoid",
+          "type": "string",
+          "label": {
+            "en": "Day to avoid by the moon (yes, no)",
+            "fr": "Jour à éviter selon la lune (yes, no)",
+            "de": "Ungünstiger Tag nach dem Mond (yes, no)",
+            "es": "Día desfavorable según la luna (yes, no)"
+          }
+        },
+        {
+          "key": "favourable",
+          "type": "string",
+          "label": {
+            "en": "Crops favoured by the moon",
+            "fr": "Cultures favorisées par la lune",
+            "de": "Vom Mond begünstigte Kulturen",
+            "es": "Cultivos favorecidos por la luna"
+          }
+        },
+        {
+          "key": "summary",
+          "type": "string",
+          "label": {
+            "en": "Summary, to send in a message",
+            "fr": "Résumé, à envoyer dans un message",
+            "de": "Zusammenfassung für eine Nachricht",
+            "es": "Resumen, para enviar en un mensaje"
+          }
+        }
+      ]
+    }
+  ]
+}
